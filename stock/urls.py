@@ -7,7 +7,7 @@ from stock import views
 
 app_name='stock'
 urlpatterns = [
-   path('base', views.base, name='base'),
+  
    path('add_items/', views.add_items, name='add_items'),
    path('list_item/', views.list_item, name='list_item'),
    path('update_items/<str:pk>/', views.update_items, name="update_items"),
