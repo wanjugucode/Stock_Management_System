@@ -11,7 +11,7 @@ from .filters import OrderFilter
 
 def registerPage(request):
 	if request.user.is_authenticated:
-		return redirect('store:store')
+		return redirect('login')
 	else:
 		form = CreateUserForm()
 		if request.method == 'POST':
@@ -29,7 +29,7 @@ def registerPage(request):
 
 def loginPage(request):
 	if request.user.is_authenticated:
-		return redirect('store:store')
+		return redirect('login')
 	else:
 		if request.method == 'POST':
 			username = request.POST.get('username')
@@ -39,7 +39,7 @@ def loginPage(request):
 
 			if user is not None:
 				login(request, user)
-				return redirect('store:store')
+				return redirect('login')
 			else:
 				messages.info(request, 'Username OR password is incorrect')
 
