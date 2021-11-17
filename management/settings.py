@@ -1,3 +1,5 @@
+import django_heroku
+
 """
 Django settings for management project.
 
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mailer.apps.MailerConfig',
     'accounts',
     'stock',
     'django_filters',
@@ -140,15 +143,25 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 #SMTP Configuration
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+DEFAULT_FROM_EMAIL = 'test@test.com'
+
+
+DEFAULT_FROM_EMAIL = 'expresskitchengroup'
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'expresskitchengroup'
+EMAIL_HOST_PASSWORD = 'akirachix2021'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'wangarraakoth@gmail.com'
-EMAIL_HOST_PASSWORD ='your email password'
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+django_heroku.settings(locals())

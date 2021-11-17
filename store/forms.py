@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import fields
-from .models import Customer,Category,Order,Product
+from .models import Product
 
        
 class StoreCreateForm(forms.ModelForm):
@@ -13,3 +13,4 @@ class StoreSearchForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = [ 'name']
+        
