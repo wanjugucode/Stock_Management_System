@@ -9,31 +9,85 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    
     <title>Send Email</title>
   </head>
   <body>
     {% if messageSent %}
     <div class="container">
       <h3><strong>Email successfully sent</strong></h3>
-      <p>Your message was successfully sent to {{ form.cleaned_data.to }}</p>
+      <p>Your order was successfully sent {{ form.cleaned_data.to}}</p>
     </div>
     {% else %}
     <div class="container">
       <h3><strong>Send E-mail</strong></h3>
 
+      <div class="wrapper">
+
       <form method="post">
         {% csrf_token %} {{ form.as_p }}
         <br />
+
+      
         <div class="text-center">
           <input
             type="submit"
             class="btn btn-secondary"
-            style="width: 100%"
+            style="width: 50%"
             value="Send e-mail"
           />
         </div>
+     
       </form>
     </div>
     {% endif %}
+
+</div>
+    <style>
+
+      h3{
+        color: purple;
+        padding-left: 45%;
+      }
+      form{
+        padding-left: -50%;
+        
+      }
+      .text-center input{
+        height: 50px;
+        width :12%;
+        border-radius: 6px;
+        align-items: center;
+        font-size: 1rem;
+        background-color: rgb(226, 191, 226);
+        color:black;
+        font-size: 20px;
+        padding-right: 20px;
+        margin-left: -40%;
+  
+  
+}
+
+.text-center input:hover{
+  color: white;
+  background-color: purple;
+  cursor: pointer;
+}
+.wrapper{
+  max-width: 500px;
+  width: 80%;
+  background: #fff;
+  margin: 20px auto;
+  padding: 50px;
+  box-shadow: 1px 1px 2px 2px rgba(0,0,0, 125);
+  padding-left: -40%;
+
+   }
+ 
+   
+  
+
+
+    </style>
   </body>
 </html>

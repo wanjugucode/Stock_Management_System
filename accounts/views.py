@@ -47,9 +47,15 @@ def loginPage(request):
 		context = {}
 		return render(request, 'login.html', context)
 
+
 def logoutUser(request):
-	logout(request)
-	return redirect('login')
+    if request.method == 'POST':
+        return redirect('accounts:login')
+        
+
+# def logoutUser(request):
+# 	logout(request)
+# 	return redirect('accounts:login')
 
 
 # @login_required(login_url='login')
