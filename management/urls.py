@@ -20,8 +20,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('accounts.urls')),
-    path('stock/', include('stock.urls')),
+    path('accounts', include('accounts.urls')),
+    path('', include('stock.urls')),
     path('store/', include('store.urls')),
     path('mailer/', include('mailer.urls'))
 
