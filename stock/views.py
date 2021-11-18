@@ -60,7 +60,7 @@ def add_items(request):
     if form.is_valid():
         form.save()
         messages.success(request, 'Successfully Saved')
-        return redirect('/stock/list_item')
+        return redirect('/#')
     context={
         "form":form,
         "title":'Additems',
