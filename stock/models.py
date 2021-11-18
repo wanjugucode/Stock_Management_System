@@ -28,7 +28,7 @@ class Stock(models.Model):
         ('Others','Others'),
         
     )
-   category=models.CharField(max_length=19, choices =category,null=True)
+   category=models.CharField(max_length=19, choices =category,null=True,blank=True)
    quantity=models.IntegerField(default='0', blank=True,null=True)
    receive_quantity=models.IntegerField(default='0', blank=True,null=True)
    # measurement=(
