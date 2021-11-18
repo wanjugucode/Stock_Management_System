@@ -164,7 +164,7 @@ def menu_items(request, pk):
 		messages.success(request, "Issued SUCCESSFULLY. " + str(instance.quantity) + " " + str(instance.item_name) + "s now left in Store")
 		instance.save()
 
-		return redirect('/stock_detail'+str(instance.id))
+		return redirect('/stock/stock_detail/'+str(instance.id))
 		
 
 	context = {
@@ -183,7 +183,7 @@ def add_menu(request):
     if form.is_valid():
         form.save()
         messages.success(request, 'Successfully Saved')
-        return redirect('/menu')
+        return redirect('/stock/menu')
     context={
         "form":form,
         "title":'Additems',
@@ -238,7 +238,7 @@ def update_menu(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully Saved')
-            return redirect('/menu')
+            return redirect('/stock/menu')
     context = {
         'form':form
 	}
